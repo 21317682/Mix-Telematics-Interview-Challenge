@@ -2,6 +2,7 @@
 
 ## My Solution
 The approach I took involved sorting the vehicles by latitude, followed by a loop through all 2 million that only considered the vehicles within a close latitude range of the test co-ordinate. The main assumption I make is that the shortest distance to the test co-ordinate will be within a small range of latitude as well. This allows my solution to skip over the calculation of ditances for all but a few vehicles that fall into this range. The initial rnge I choose is 0.05. The alogorithm proceeds as follows:
+  * Sort all vehicles read from file by latitude (using qsort)
   * Consider a test co-ordinate {32, -100}, this will only consider vehicles in range (31.95,32.05)
   * If no vehicles fall in this range, it is doubled and the loop now considers vehicles in range (31.90,32.10)
   * This repeats to (31.80, 32.20), (31.60, 32.40) and so on until at least one vehicle in the latitude range is present.
